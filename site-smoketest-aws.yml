@@ -8,7 +8,7 @@
     uri:
       url: "http://{{ item }}"
       return_content: yes
-    loop: "{{ ansible_facts.ansible_hostname }}"
+    loop: "{{ ansible_facts.hostname }}"
     register: webpage
 
 
