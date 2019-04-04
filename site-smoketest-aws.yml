@@ -3,6 +3,8 @@
   tasks:
   - name: debug ansible_facts
     debug: var=ansible_facts
+    tags:
+      - debug
 
   - name: Use Uri module for wrting smoke test.
     uri:
@@ -14,6 +16,8 @@
 
   - name: debug webpage
     debug: var=webpage
+    tags:
+      - debug
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:

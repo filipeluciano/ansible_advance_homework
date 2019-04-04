@@ -11,6 +11,8 @@
 
   - name: debug inventory
     debug: var=openstack_info
+    tags:
+      - debug
 
   - name: Curl website
     uri:
@@ -19,6 +21,11 @@
     loop: "{{ openstack_info.ansible_facts.openstack_servers }}"
     register: webpage
 
+  - name: debug webpage
+    debug: var=webpage
+    tags:
+      - debug
+  
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
     when: "'Ansible has done its job' not in webpage.results[0].content"
