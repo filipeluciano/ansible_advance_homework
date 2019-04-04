@@ -1,5 +1,5 @@
 - hosts: frontends
-  gather_facts: false
+  gather_facts: true
   tasks:
   - name: Use Uri module for wrting smoke test.
     uri:
