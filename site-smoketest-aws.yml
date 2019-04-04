@@ -1,6 +1,9 @@
 - hosts: frontends
   gather_facts: true
   tasks:
+  - name: debug ansible_facts
+    debug: var=ansible_facts
+
   - name: Use Uri module for wrting smoke test.
     uri:
       url: "http://{{ item }}"
