@@ -12,6 +12,8 @@
       - "{{ ansible_facts.hostname }}"
     register: webpage
 
+  - name: debug webpage
+    debug: var=webpage
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
