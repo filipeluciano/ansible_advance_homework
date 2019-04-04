@@ -14,10 +14,10 @@
 
   - name: Curl website
     uri:
-      url: "http://{{ item.accessIPv4 }}"
+      url: "http://{{ item.public_v4 }}"
       return_content: yes
       register: webpage
-    loop: 
+    with_items: 
       - "{{ openstack_info.ansible_facts.openstack_servers }}"
 
   - name: Fail if 'Ansible has done its job' is not in the page content
