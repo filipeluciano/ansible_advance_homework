@@ -8,7 +8,15 @@
     register: openstack_info
     tags:
       - osp.smoke
+
+  - name: debug inventory
+    debug: var=openstack_info
+
   - name: Curl website
+    uri:
+      url: http://frontend1.23e4.example.opentlc.com
+      return_content: yes
+      register: webpage
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
